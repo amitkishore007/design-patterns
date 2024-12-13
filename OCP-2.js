@@ -1,3 +1,4 @@
+"use strict";
 // without open closed principle
 function paymentProcessor(processor) {
     if (processor.type === 'upi') {
@@ -11,39 +12,27 @@ function paymentProcessor(processor) {
     }
 }
 paymentProcessor({ type: 'upi' });
-var UpiPayment = /** @class */ (function () {
-    function UpiPayment() {
-    }
-    UpiPayment.prototype.processPayment = function (amount) {
+class UpiPayment {
+    processPayment(amount) {
         console.log('Process the payment though UPI for INR.' + amount);
-    };
-    return UpiPayment;
-}());
-var GpayPayment = /** @class */ (function () {
-    function GpayPayment() {
     }
-    GpayPayment.prototype.processPayment = function (amount) {
+}
+class GpayPayment {
+    processPayment(amount) {
         console.log('Process the payment though Gpay for INR.' + amount);
-    };
-    return GpayPayment;
-}());
-var CreditCardPayment = /** @class */ (function () {
-    function CreditCardPayment() {
     }
-    CreditCardPayment.prototype.processPayment = function (amount) {
+}
+class CreditCardPayment {
+    processPayment(amount) {
         console.log('Process the payment though Credit Card for INR.' + amount);
-    };
-    return CreditCardPayment;
-}());
-var PaymentProcessor = /** @class */ (function () {
-    function PaymentProcessor() {
     }
-    PaymentProcessor.prototype.processPayment = function (processor, amount) {
+}
+class PaymentProcessor {
+    processPayment(processor, amount) {
         return processor.processPayment(amount);
-    };
-    return PaymentProcessor;
-}());
-var processorObj = new PaymentProcessor();
+    }
+}
+const processorObj = new PaymentProcessor();
 processorObj.processPayment(new UpiPayment(), 100);
 processorObj.processPayment(new GpayPayment(), 100);
 processorObj.processPayment(new CreditCardPayment(), 100);

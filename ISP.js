@@ -1,35 +1,27 @@
+"use strict";
 //  interface Machine {
 //     print(document: any): void;
-var Printer = /** @class */ (function () {
-    function Printer() {
-    }
-    Printer.prototype.print = function (document) {
+class Printer {
+    print(document) {
         console.log('Printing Document from Printer ..... ');
-    };
-    return Printer;
-}());
-var AdvancedPrinter = /** @class */ (function () {
-    function AdvancedPrinter() {
     }
-    AdvancedPrinter.prototype.print = function (document) {
+}
+class AdvancedPrinter {
+    print(document) {
         console.log('Printing Document from Advanced Printer ..... ');
-    };
-    AdvancedPrinter.prototype.scan = function (document) {
-        console.log('Scanning Document from Advanced Printer ..... ');
-    };
-    return AdvancedPrinter;
-}());
-var FaxMachine = /** @class */ (function () {
-    function FaxMachine() {
     }
-    FaxMachine.prototype.fax = function (document) {
+    scan(document) {
+        console.log('Scanning Document from Advanced Printer ..... ');
+    }
+}
+class FaxMachine {
+    fax(document) {
         console.log('Faxing Document from Fax Machine ..... ');
-    };
-    return FaxMachine;
-}());
-var printer = new Printer();
-var advancedPrinter = new AdvancedPrinter();
-var faxMachine = new FaxMachine();
+    }
+}
+const printer = new Printer();
+const advancedPrinter = new AdvancedPrinter();
+const faxMachine = new FaxMachine();
 printer.print({});
 advancedPrinter.print({});
 faxMachine.fax({});

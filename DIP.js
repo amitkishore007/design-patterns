@@ -1,44 +1,35 @@
+"use strict";
 // class MySqlDB {
 //     save(data: any) {
-var MongoDB = /** @class */ (function () {
-    function MongoDB() {
-    }
-    MongoDB.prototype.save = function (data) {
+class MongoDB {
+    save(data) {
         console.log('Saving records to MongoDB .... ');
-    };
-    return MongoDB;
-}());
-var MySql = /** @class */ (function () {
-    function MySql() {
     }
-    MySql.prototype.save = function (data) {
+}
+class MySql {
+    save(data) {
         console.log('Saving records to MySql .... ');
-    };
-    return MySql;
-}());
-var PostgreSql = /** @class */ (function () {
-    function PostgreSql() {
     }
-    PostgreSql.prototype.save = function (data) {
+}
+class PostgreSql {
+    save(data) {
         console.log('Saving records to PostgreSql .... ');
-    };
-    return PostgreSql;
-}());
-var HighLevelModule = /** @class */ (function () {
-    function HighLevelModule(db) {
+    }
+}
+class HighLevelModule {
+    constructor(db) {
         this.db = db;
     }
-    HighLevelModule.prototype.execute = function (data) {
+    execute(data) {
         this.db.save(data);
-    };
-    return HighLevelModule;
-}());
-var mongodbInstance = new MongoDB();
-var mysqlInstance = new MySql();
-var postgresqlInstance = new PostgreSql();
-var mongoQuery = new HighLevelModule(mongodbInstance);
+    }
+}
+const mongodbInstance = new MongoDB();
+const mysqlInstance = new MySql();
+const postgresqlInstance = new PostgreSql();
+const mongoQuery = new HighLevelModule(mongodbInstance);
 mongoQuery.execute({});
-var mysqlQuery = new HighLevelModule(mysqlInstance);
+const mysqlQuery = new HighLevelModule(mysqlInstance);
 mysqlQuery.execute({});
-var postgreQuery = new HighLevelModule(postgresqlInstance);
+const postgreQuery = new HighLevelModule(postgresqlInstance);
 postgreQuery.execute({});
